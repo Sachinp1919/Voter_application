@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>Show Details</title>
+{% endblock %}
+{% block content %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Voter ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Pin Code</th>
+                    <th>Date of Birth</th>
+                    <th>Contact</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for vo in Voter %}
+                <tr>
+                    <td>{{ vo.voter_id }}</td>
+                    <td>{{ vo.first_name }}</td>
+                    <td>{{ vo.last_name }}</td>
+                    <td>{{ vo.gender }}</td>
+                    <td>{{ vo.address }}</td>
+                    <td>{{ vo.city }}</td>
+                    <td>{{ vo.state }}</td>
+                    <td>{{ vo.pincode }}</td>
+                    <td>{{ vo.date_of_birth }}</td>
+                    <td>{{ vo.contact }}</td>
+                    <td>
+                    <a href="{% url 'details_url' vo.pk %}" class="btn btn-outline-danger">Details</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+{% endblock %}
